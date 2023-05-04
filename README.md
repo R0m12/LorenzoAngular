@@ -2,6 +2,9 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4.
 
+Il y dans ce projet deux routes différentes: "/album" et "/chanson". Cette dernière n'est accessible qu'en tapant l'URL manuellement.
+Echec d'ajout de chansons, erreur 500 lors de l'ajout de "album_id".
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
