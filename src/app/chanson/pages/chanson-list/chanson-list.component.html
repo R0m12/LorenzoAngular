@@ -1,0 +1,39 @@
+<div class="container">
+    <h2>Liste des chansons</h2>
+    <div class="flex-grow-1 p-1">
+    
+    <table mat-table [dataSource]="chanson$" class="mat-elevation-z8">
+        
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="featuring">
+            <th mat-header-cell *matHeaderCellDef> Featuring </th>
+            <td mat-cell *matCellDef="let element"> {{element.featuring}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="album_id">
+            <th mat-header-cell *matHeaderCellDef> Album </th>
+            <td mat-cell *matCellDef="let element"> {{element.album_id}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="update">
+            <th mat-header-cell *matHeaderCellDef> Update </th>
+            <td mat-cell *matCellDef="let element" (click)="openChansonForm(element); $event.stopPropagation()"> <mat-icon>edit</mat-icon> </td>
+        </ng-container>
+
+        <ng-container matColumnDef="delete">
+            <th mat-header-cell *matHeaderCellDef> Delete </th>
+            <td mat-cell *matCellDef="let element" (click)="delete(element.id); $event.stopPropagation();"> <mat-icon>delete</mat-icon> </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+
+    </div>
+    <div class="btn-holder">
+    <button mat-fab color="warn" (click)="openChansonForm()"><mat-icon>add</mat-icon></button>
+    </div>
+</div>  

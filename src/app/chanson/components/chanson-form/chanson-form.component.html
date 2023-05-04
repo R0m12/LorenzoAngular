@@ -1,0 +1,33 @@
+<h2 mat-dialog-title>{{title}}</h2>
+
+<form [formGroup]="chansonForm" (ngSubmit)="onSubmit()">
+  <div class="form">
+    <mat-form-field appearance="outline">
+        <mat-label>Identifiant</mat-label>
+        <input matInput formControlName="id" readonly />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Nom</mat-label>
+        <input matInput formControlName="name" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Featuring</mat-label>
+        <input matInput formControlName="featuring" />
+    </mat-form-field>
+    
+    <mat-form-field appearance="outline">
+        <mat-label>Album</mat-label>
+        <mat-select formControlName="album_id">
+            <mat-option *ngFor="let album of albums" [value]="album.id">{{album.name}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+  </div>
+
+
+  <mat-dialog-actions align="end">
+    <button mat-button type="button" mat-dialog-close>Annuler</button>
+    <button mat-raised-button type="submit" cdkFocusInitial color="warn" [disabled]="!chansonForm.valid || !chansonForm.dirty">{{submitBtnName}}</button>
+  </mat-dialog-actions>
+</form>

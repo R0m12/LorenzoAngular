@@ -1,0 +1,34 @@
+<div class="container">
+    <h2>Liste des albums</h2>
+    <div class="flex-grow-1 p-1">
+    
+    <table mat-table [dataSource]="album$" class="mat-elevation-z8">
+        
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="dateOfRelease">
+            <th mat-header-cell *matHeaderCellDef> Date of release </th>
+            <td mat-cell *matCellDef="let element"> {{element.dateOfRelease}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="update">
+            <th mat-header-cell *matHeaderCellDef> Update </th>
+            <td mat-cell *matCellDef="let element" (click)="openAlbumForm(element); $event.stopPropagation()"> <mat-icon>edit</mat-icon> </td>
+        </ng-container>
+
+        <ng-container matColumnDef="delete">
+            <th mat-header-cell *matHeaderCellDef> Delete </th>
+            <td mat-cell *matCellDef="let element" (click)="delete(element.id); $event.stopPropagation();"> <mat-icon>delete</mat-icon> </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+
+    </div>
+    <div class="btn-holder">
+    <button mat-fab color="warn" (click)="openAlbumForm()"><mat-icon>add</mat-icon></button>
+    </div>
+</div>  
