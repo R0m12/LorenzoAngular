@@ -27,7 +27,7 @@ export class ChansonFormComponent implements OnDestroy {
     id: [0, [Validators.required]],
     name: ['', [Validators.required]],
     featuring: [''],
-    album_id: [new mongoose.Types.ObjectId(), [Validators.required]],
+    album_id: [0, [Validators.required]],
   });
 
   albums: Album[] = [];
@@ -56,7 +56,7 @@ export class ChansonFormComponent implements OnDestroy {
           id: chanson.id,
           name: chanson.name,
           featuring: chanson.featuring,
-          album_id: this.chansonForm.value.album_id ? new mongoose.Types.ObjectId(this.chansonForm.value.album_id.toString()) : null
+          album_id: chanson.album_id
         });
       }
     
