@@ -1,4 +1,4 @@
 export const environment = {
     production: false,
-        albumApiBaseUrl: 'http://localhost:3000'
+        albumApiBaseUrl: 'https://lorenzo-api.vercel.app'
 };
